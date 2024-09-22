@@ -1,0 +1,9 @@
+{
+    "auto-run-command.commands": [
+        {
+            "command": "workbench.action.tasks.runTask",
+            "args": "Run Django Server",
+            "when": "workspaceFolder == 'mysite'"
+        }
+    ]
+}
