@@ -1,0 +1,691 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+/*===== BASE =====*/
+*,::before,::after{
+    box-sizing: border-box;
+}
+
+:root {
+    --nav-width: 92px;
+
+    --fuente_1: "New Amsterdam", sans-serif;
+    --fuente_2: "Matemasie", sans-serif;
+    --fuente_3: "Bebas Neue", sans-serif ;
+    --fuente_4: "Concert One", sans-serif ;
+
+    /*===== Colores =====*/
+    --first-color: #92afe5;
+    --bg-color: #12192C;
+    --sub-color: #B6CEFC;
+    --white-color: #FFF;
+
+    /*===== Fuente y tipografia =====*/
+    --body-font: 'Poppins', sans-serif;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+
+    /*===== z index =====*/
+    --z-fixed: 1000;
+}
+
+h1{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+/* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+} */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('../picture/3dviu2.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 5.5rem; /* Reduce el gap para pantallas más pequeñas */
+  justify-content: center; 
+  padding: 20px; 
+  /* margin-left: 200px; */
+  /* margin-left: 15%; */
+}
+
+.card {
+  width: 100%; /* Para pantallas pequeñas, que ocupe todo el ancho del contenedor */
+  max-width: 250px; /* Establece un máximo para que no crezca demasiado en pantallas grandes */
+  height: auto; /* Ajusta la altura automáticamente en función del contenido */
+  background: white;
+  border: solid 1px #ced8de;
+  border-radius: 30px;
+  box-sizing: border-box; /* Asegura que el padding y border estén incluidos en el width/height */
+  transition: transform 0.2s ease-in-out; /* Añade una pequeña animación para la interactividad */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Añade un ligero zoom al pasar el mouse */
+}
+
+.img {
+  width: 100%;
+  height: 150px; /* Fija la altura de la imagen */
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  outline: 0;
+ /*  background-color: rgba(17, 24, 39, 1); */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px 30px 0 0;
+}
+
+.save {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: 0.2s ease;
+}
+
+.text {
+  padding: 10px 15px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Corrige el alineamiento para mantener el texto alineado a la izquierda */
+}
+
+.h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #333;
+  text-align: center;
+}
+
+.p {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+
+.save .svg {
+    transition: 0.2s ease-in-out;
+    width: 20px;
+    height: 20px;
+}
+
+.text .h3 {
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.text .p {
+    font-family: var(--fuente_3);
+    color: #999999;
+    font-size: 16px;
+}
+
+.icon-box {
+    margin-top: 15px;
+    width: 70%;
+    padding: 10px;
+    background-color: #e3fff9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Corrige el alineamiento para mantener el ícono a la izquierda */
+}
+
+.icon-box svg {
+    width: 17px;
+}
+
+.icon-box .span {
+    margin-left: 10px;
+    font-family: var(--fuente_1);
+    font-size: 13px;
+    font-weight: 500;
+    color: #9198e5;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
+}
+
+.save:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.save:hover .svg {
+    fill: #ced8de;
+}
+
+
+/*===== l NAV =====*/
+.l-navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--white-color);
+  padding: 1.5rem 1.5rem 2rem;
+  transition: .5s;
+  z-index: var(--z-fixed);
+  border-radius: 0 20px 20px 0;
+}
+
+/*===== NAV =====*/
+.nav{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.nav__brand{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.nav__toggle{
+  font-size: 1.5rem;
+  padding: .75rem;
+  cursor: pointer;
+}
+.nav__logo{
+  color: var(--white-color);
+  font-weight: 600;
+  height: 90px;
+  width: 90px;
+  border-radius: 50px;
+}
+
+.nav__link{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: .75rem;
+  padding: .75rem;
+  color: var(--white-color);
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+  transition: .3s;
+  cursor: pointer;
+}
+.nav__link:hover{
+  background-color: var(--first-color);
+}
+.nav__icon{
+  font-size: 1.25rem;
+}
+.nav__name{
+  font-size: var(--small-font-size);
+}
+
+/*Expander menu*/
+.expander{
+  width: calc(var(--nav-width) + 9.25rem);
+}
+
+/*Add padding body*/
+.body-pd{
+  padding: 2rem 0 0 16rem;
+}
+
+/*Active links menu*/
+.nav__link.active{
+  background-color: #632CA6; /* Color de fondo solo para el enlace activo */
+  color: #fff; /* Color del texto */
+}
+/* Estilo para el hover cuando el enlace está activo */
+.nav__link.active:hover {
+  background-color: var(--first-color); /* Puedes cambiarlo si quieres que el hover de los elementos activos sea distinto */
+}
+
+
+/*===== COLLAPSE =====*/
+.collapse{
+  grid-template-columns: 20px max-content 1fr;
+}
+.collapse__link{
+  justify-self: flex-end;
+  transition: .5s;
+}
+.collapse__menu{
+  display: none;
+  padding: .75rem 2.25rem;
+}
+.collapse__sublink{
+  color: var(--sub-color);
+  font-size: var(--small-font-size);
+}
+.collapse__sublink:hover{
+  color: var(--white-color);
+}
+
+/*Show collapse*/
+.showCollapse{
+  display: block;
+}
+
+/*Rotate icon*/
+.rotate{
+  transform: rotate(180deg);
+}
+
+
+/* Estilos para el navbar superior */
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #96979737; */
+  background-color: var(--bg-color);
+  /*Fondosuave*/padding: 15px 35px;
+  margin-left: var(--nav-width);
+  /*Alineaelnavbarconelsidebar*/
+  /* box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.595); */
+  width: calc(80% - var(--nav-width));
+  /*Calculaelanchodelnavbarparaocuparelespaciorestante*/
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  border-radius: 0 0 20px 20px;
+  border-bottom: 1px solid #ffffff84;
+}
+
+/* Estilos para los íconos del navbar */
+.top-navbar ion-icon {
+  color: var(--bg-color);
+}
+/* Estilo específico para el icono de alerta */
+.top-navbar__icons .icon__alert {
+  color: rgb(255, 209, 6); /* Cambia el color del icono de alerta a amarillo */
+}
+
+/* Message icon styling */
+.top-navbar__icons .icon__message {
+  color: var(--white-color); /* Default icon color, can be customized */
+}
+/* Estilos para los enlaces del navbar si es necesario */
+.top-navbar a {
+  color: white; /* Asegura que el texto también sea blanco si es necesario */
+  text-decoration: none;
+}
+/* Contenedor adicional para centrar la barra de búsqueda */
+.top-navbar__center {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.top-navbar__search {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 50px;
+  padding: 5px 15px;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  width: 300px;
+}
+
+.search__input {
+  border: none;
+  outline: none;
+  padding: 8px;
+  border-radius: 50px;
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.search__icon {
+  font-size: 20px;
+  color: #888;
+}
+
+.top-navbar__icons {
+  display: flex;
+  align-items: center;
+}
+.icon__message{
+  font-size: 24px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.icon__message:hover{
+  background-color: var(--first-color);
+  border-radius: 0.5rem;
+}
+.icon__alert {
+  font-size: 24px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.profile-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #e9ecef;
+}
+
+.icon__alert:hover, .profile-pic:hover {
+  background-color: var(--first-color);
+  border-radius: 0.5rem;
+}
+
+.search__input::placeholder {
+  color: #aaa;
+  font-size: 14px;
+}
+
+
+@media (max-width: 768px) {
+  .top-navbar__search {
+      width: 200px;
+  }
+
+  .top-navbar {
+      width: 80%;
+  }
+}
+.form button {
+  border: none;
+  background: none;
+  color: #8b8ba7;
+}
+
+.form {
+  --timing: 0.3s;
+  --width-of-input: 200px;
+  --height-of-input: 40px;
+  --border-height: 2px;
+  --input-bg: #fff;
+  --border-color: #2f2ee9;
+  --border-radius: 30px;
+  --after-border-radius: 1px;
+  position: relative;
+  width: var(--width-of-input);
+  height: var(--height-of-input);
+  display: flex;
+  align-items: center;
+  padding-inline: 0.8em;
+  border-radius: var(--border-radius);
+  transition: border-radius 0.5s ease;
+  background: var(--input-bg,#fff);
+}
+
+.input {
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  box-sizing: border-box;
+}
+
+.form:before {
+  content: "";
+  position: absolute;
+  background: var(--border-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: var(--border-height);
+  left: 0;
+  bottom: 0;
+  border-radius: 1px;
+  transition: transform var(--timing) ease;
+}
+
+.form:focus-within {
+  border-radius: var(--after-border-radius);
+}
+
+input:focus {
+  outline: none;
+}
+
+.form:focus-within:before {
+  transform: scale(1);
+}
+
+.reset {
+  border: none;
+  background: none;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+input:not(:placeholder-shown) ~ .reset {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form svg {
+  width: 17px;
+  margin-top: 3px;
+}
+
+/* ==== Responsive adjustments ==== */
+@media (max-width: 768px) {
+  .input {
+    font-size: 0.85rem;
+    padding-block: 0.6em;
+  }
+
+  .form svg {
+    width: 15px;
+  }
+
+  .reset {
+    width: 15px;
+  }
+
+  /* El top-navbar ocupa todo el ancho en pantallas móviles */
+  .top-navbar {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* Mostrar el ícono de menú */
+  .nav__toggle {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--white-color);
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .nav.active {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 50px);
+    z-index: 999;
+    padding: 1rem;
+  }
+
+  .top-navbar__profile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .l-navbar{
+    display: none;
+  }
+  /* .l-navbar {
+    width: 100%;
+    position: relative;
+    height: auto;
+    background-color: var(--bg-color);
+    margin-top: 10px;
+    border-radius: 10px;
+  } */
+
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav__link {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* Estilo para el hover cuando el enlace no está activo */
+  .nav__link:hover {
+    background-color: var(--first-color);
+  }
+
+  .top-navbar__icons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .top-navbar__search {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/*MENU MOVIL*/
+/* Estilos para la vista de escritorio (pantallas grandes) */
+.l-navbar_movil {
+  display: none; /* Asegúrate de que esté oculto en pantallas grandes */
+}
+
+/* Estilos para la vista móvil */
+@media screen and (max-width: 768px) {
+  .l-navbar_movil {
+      display: block; /* Cambié a block para permitir la animación */
+      position: fixed;
+      top: 7.8rem; /* Mantén la posición en la parte superior */
+    /*   right: 10px; */ /* Ajusta según la posición deseada */
+      width: 40%; /* Ocupa el 40% del ancho de la pantalla */
+      background-color: var(--bg-color, #333); /* Fallback color si no existen las variables */
+      color: var(--white-color, #fff); /* Fallback al blanco si no existe la variable */
+      border-bottom-left-radius: 20px; /* Redondeo en la esquina inferior izquierda */
+      border-bottom-right-radius: 20px; /* Redondeo en la esquina inferior derecha */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000; /* Para que se muestre sobre otros elementos */
+      border-bottom: 1.5px solid #ffffff84;
+      transform: translateY(-100%); /* Oculto inicialmente, fuera de la pantalla hacia arriba */
+      opacity: 0; /* Oculto inicialmente */
+      transition: transform 0.5s ease, opacity 0.5s ease; /* Transición suave */
+  }
+
+  /* Cuando se añada la clase 'show', el menú baja */
+  .l-navbar_movil.show {
+      transform: translateY(0); /* Se desplaza hacia abajo */
+      opacity: 1; /* Se muestra */
+  }
+
+  /* Estilos adicionales para la foto de perfil */
+  .profile-picture {
+      cursor: pointer;
+  }
+}
+
+
+
+/* Estilos para vista móvil */
+@media screen and (max-width: 768px) {
+  .top-navbar {
+      flex-direction: column; /* Coloca los elementos en columna en pantallas móviles */
+      align-items: center; /* Alinea todo al centro en móvil */
+  }
+
+  .top-navbar__center {
+      width: 100%; /* Ocupa el ancho completo del contenedor */
+      display: flex;
+      justify-content: center; /* Centra el buscador horizontalmente */
+      margin-bottom: 10px; /* Espacio debajo del buscador */
+  }
+
+  .top-navbar__icons {
+      width: 100%; /* Ocupa todo el ancho disponible en móviles */
+      justify-content: center; /* Centra los íconos horizontalmente */
+  }
+
+  .top-navbar__icons ion-icon {
+      font-size: 18px; /* Ajusta el tamaño de los íconos para móviles */
+  }
+
+  .profile-pic {
+      width: 30px; /* Reduce el tamaño de la imagen de perfil en móviles */
+      height: 30px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid #e9ecef;
+  }
+}
+
+/* Asegúrate de que las tarjetas no estén detrás del navbar en la vista móvil */
+@media screen and (max-width: 768px) {
+  .cards-container {
+      margin-top: 8rem; /* Añade suficiente espacio en la parte superior */
+  }
+
+  .card {
+      width: 80%; /* Ocupa el 90% del ancho de la pantalla, pero no el 100% */
+      max-width: 300px; /* Limita el ancho máximo para que no sean demasiado grandes */
+  }
+}
